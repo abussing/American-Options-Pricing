@@ -33,10 +33,13 @@ def hold_or_exercise(current_stockprice, optionval_tplus1, isput, K, r, T, times
 
     optionval_current = discountedval(optionval_tplus1, r, T, timesteps)
 
-    lsq_preds = expectval_hold(
-        holdpayoff=discountedval(optionval_tplus1[inthemoney], r, T, timesteps),
-        current_stockprice=current_stockprice[inthemoney],
-    )
+    if sum(inthemoney) == 0:
+        lsq_preds = -999
+    else:
+        lsq_preds = expectval_hold(
+            holdpayoff=discountedval(optionval_tplus1[inthemoney], r, T, timesteps),
+            current_stockprice=current_stockprice[inthemoney],
+        )
 
     optionval_current[inthemoney] = (
         (lsq_preds > ifexercisednow[inthemoney])
