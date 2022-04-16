@@ -108,7 +108,7 @@ def BGMC(b, n, stockprice_t0, r, delta, sigma, T, timesteps, K, isput):
             K=K, isput=isput, is_upperbound=False, r=r, T=T, timesteps=timesteps
         )
         ourtree_copy.eval_tree(
-            K=100, isput=isput, is_upperbound=True, r=r, T=T, timesteps=timesteps
+            K=K, isput=isput, is_upperbound=True, r=r, T=T, timesteps=timesteps
         )
 
         retvec[j, :] = np.array([ourtree.price, ourtree_copy.price])
