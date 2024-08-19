@@ -1,6 +1,4 @@
-# stat-721
-stat721 final project (pricing american options)
-
+# American Options Pricing
 scripts for calculating american options using the following methods:
 
 
